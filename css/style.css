@@ -2180,13 +2180,13 @@ img.loaded {
 
 /* ---------- Hero backgrounds (per page) ---------- */
 .hero__bg--home {
-  background-image: url("https://res.cloudinary.com/dlpdbr0ey/image/upload/v1788307180/4bab12a6-381f-4ec4-9971-afc4e5eb8503_k0qte6.jpg");
+  background-image: url("https://res.cloudinary.com/k3cqt6uc/image/upload/v1791369174/3c451b91-7827-4a40-95e0-0eeb12164659.jpg");
 }
 .hero__bg--leistungen {
-  background-image: url("https://res.cloudinary.com/dlpdbr0ey/image/upload/v1775666178/862ff764-ff7f-4560-b61d-e7e5fd72978c_pza4fl.jpg");
+  background-image: url("https://res.cloudinary.com/k3cqt6uc/image/upload/v1791364840/c5a8404a-72b2-462d-baff-8071eaba44b7.jpg");
 }
 .hero__bg--ueber-uns {
-  background-image: url("https://res.cloudinary.com/dlpdbr0ey/image/upload/v1775684095/883490e5-8cd0-49a8-8610-8563588a3419_x4ccw5.jpg");
+  background-image: url("https://res.cloudinary.com/k3cqt6uc/image/upload/v1791369174/3c451b91-7827-4a40-95e0-0eeb12164659.jpg");
 }
 .hero__bg--blog {
   background-image: url("https://res.cloudinary.com/dlpdbr0ey/image/upload/v1775684350/e7e48bfe-81c9-4b29-a236-c06baa8fa3d7_quz2kj.jpg");
@@ -2206,3 +2206,513 @@ img.loaded {
 .hero__bg--spezial {
   background-image: url("https://res.cloudinary.com/dlpdbr0ey/image/upload/v1775724821/d23e6fcf-6e65-456a-a4ac-f6c3060a850a_eublry.jpg");
 }
+
+/* =========================================================
+   START: HERO – LEISTUNGEN
+   ========================================================= */
+
+.hero--leistungen {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(560px, 72vh, 780px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #111;
+}
+
+/* ---------------------------------------------------------
+   Hintergrund
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  background-image: url("DEIN-BILD-HIER");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.04);
+  animation: heroBackgroundReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ---------------------------------------------------------
+   Overlay
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 13, 20, 0.88) 0%,
+      rgba(8, 13, 20, 0.68) 38%,
+      rgba(8, 13, 20, 0.28) 72%,
+      rgba(8, 13, 20, 0.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(8, 13, 20, 0.15) 0%,
+      rgba(8, 13, 20, 0.15) 55%,
+      rgba(8, 13, 20, 0.65) 100%
+    );
+}
+
+/* ---------------------------------------------------------
+   Content
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__content {
+  position: relative;
+  width: 100%;
+  padding-top: clamp(80px, 10vh, 130px);
+  padding-bottom: clamp(80px, 10vh, 130px);
+}
+
+/* ---------------------------------------------------------
+   Eyebrow
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation: heroFadeUp 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero--leistungen .hero__eyebrow-line {
+  width: 28px;
+  height: 2px;
+  border-radius: 99px;
+  background: currentColor;
+}
+
+/* ---------------------------------------------------------
+   Headline
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__title {
+  max-width: 850px;
+  margin: 0;
+
+  color: #fff;
+
+  font-size: clamp(48px, 7vw, 92px);
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  font-weight: 750;
+
+  text-wrap: balance;
+
+  opacity: 0;
+  transform: translateY(28px);
+
+  animation: heroFadeUp 1s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Highlight */
+.hero--leistungen .hero__title .highlight {
+  position: relative;
+  display: inline-block;
+
+  color: var(--primary-color, #ff6b00);
+}
+
+/*
+  Dezente Linie unter dem Highlight.
+  Nicht zu groß – soll nur die Hierarchie unterstützen.
+*/
+.hero--leistungen .hero__title .highlight::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  right: 5%;
+
+  bottom: -0.08em;
+
+  height: 3px;
+
+  border-radius: 99px;
+
+  background: currentColor;
+
+  transform-origin: left center;
+  transform: scaleX(0);
+
+  animation: heroUnderline 0.8s 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ---------------------------------------------------------
+   Beschreibung
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__description {
+  max-width: 650px;
+
+  margin: 26px 0 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: clamp(17px, 1.7vw, 20px);
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+
+  text-wrap: pretty;
+
+  opacity: 0;
+  transform: translateY(22px);
+
+  animation: heroFadeUp 0.9s 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero--leistungen .hero__description strong {
+  color: #fff;
+  font-weight: 650;
+}
+
+/* ---------------------------------------------------------
+   Meta / Trust
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  margin-top: 30px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation: heroFadeUp 0.9s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero--leistungen .hero__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hero--leistungen .hero__meta-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: currentColor;
+
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.08);
+}
+
+.hero--leistungen .hero__meta-icon {
+  display: grid;
+  place-items: center;
+
+  width: 18px;
+  height: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+
+  font-size: 10px;
+  line-height: 1;
+}
+
+.hero--leistungen .hero__meta-divider {
+  width: 1px;
+  height: 18px;
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------------------------------------------------------
+   Scroll CTA
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 44px;
+
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  opacity: 0;
+  transform: translateY(18px);
+
+  animation: heroFadeUp 0.9s 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero--leistungen .hero__scroll:hover {
+  transform: translateY(-2px);
+}
+
+.hero--leistungen .hero__scroll-text {
+  position: relative;
+}
+
+.hero--leistungen .hero__scroll-text::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+
+  height: 1px;
+
+  background: currentColor;
+
+  transform: scaleX(0.35);
+  transform-origin: left;
+
+  transition: transform 0.3s ease;
+}
+
+.hero--leistungen .hero__scroll:hover .hero__scroll-text::after {
+  transform: scaleX(1);
+}
+
+.hero--leistungen .hero__scroll-arrow {
+  display: grid;
+  place-items: center;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+
+  font-size: 17px;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero--leistungen .hero__scroll:hover .hero__scroll-arrow {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.1);
+
+  transform: translateY(3px);
+}
+
+/* ---------------------------------------------------------
+   Dekorative Glows
+   --------------------------------------------------------- */
+
+.hero--leistungen .hero__glow {
+  position: absolute;
+  z-index: -1;
+
+  width: 420px;
+  height: 420px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(90px);
+
+  opacity: 0.12;
+}
+
+.hero--leistungen .hero__glow--one {
+  left: -180px;
+  bottom: -180px;
+
+  background: var(--primary-color, #ff6b00);
+}
+
+.hero--leistungen .hero__glow--two {
+  right: -220px;
+  top: -220px;
+
+  background: var(--primary-color, #ff6b00);
+}
+
+/* ---------------------------------------------------------
+   Animationen
+   --------------------------------------------------------- */
+
+@keyframes heroBackgroundReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroUnderline {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .hero--leistungen {
+    min-height: 650px;
+  }
+
+  .hero--leistungen .hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(8, 13, 20, 0.84), rgba(8, 13, 20, 0.52)),
+      linear-gradient(180deg, rgba(8, 13, 20, 0.1), rgba(8, 13, 20, 0.65));
+  }
+
+  .hero--leistungen .hero__title {
+    max-width: 700px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .hero--leistungen {
+    min-height: 600px;
+    align-items: flex-end;
+  }
+
+  .hero--leistungen .hero__content {
+    padding-top: 110px;
+    padding-bottom: 55px;
+  }
+
+  .hero--leistungen .hero__bg {
+    background-position: 62% center;
+  }
+
+  .hero--leistungen .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 13, 20, 0.18) 0%,
+      rgba(8, 13, 20, 0.48) 38%,
+      rgba(8, 13, 20, 0.92) 100%
+    );
+  }
+
+  .hero--leistungen .hero__eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .hero--leistungen .hero__title {
+    font-size: clamp(44px, 14vw, 64px);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+  }
+
+  .hero--leistungen .hero__title .highlight::after {
+    height: 2px;
+  }
+
+  .hero--leistungen .hero__description {
+    margin-top: 20px;
+
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .hero--leistungen .hero__meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 24px;
+
+    font-size: 13px;
+  }
+
+  .hero--leistungen .hero__meta-divider {
+    display: none;
+  }
+
+  .hero--leistungen .hero__scroll {
+    margin-top: 32px;
+  }
+
+  .hero--leistungen .hero__scroll-arrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION – ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--leistungen *,
+  .hero--leistungen *::before,
+  .hero--leistungen *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   ENDE: HERO – LEISTUNGEN
+   ========================================================= */
