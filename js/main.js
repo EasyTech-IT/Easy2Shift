@@ -1,6 +1,6 @@
 /* ==========================================================================
    Easy2Shift Logistik – JavaScript
-   Navigation, FAQ-Akkordeon, Form-Validierung, Consent, Lazy-Load, Back-to-top
+   Navigation, FAQ-Akkordeon, Form-Validierung, Lazy-Load, Back-to-top
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -222,53 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btt.addEventListener("click", () =>
       window.scrollTo({ top: 0, behavior: "smooth" }),
     );
-  }
-
-  /* ---------- DSGVO Consent Banner ---------- */
-  const banner = document.querySelector(".consent-banner");
-  if (banner) {
-    const accepted = localStorage.getItem("consent_accepted");
-    if (!accepted) {
-      banner.classList.add("consent-banner--visible");
-    }
-    const acceptBtn = banner.querySelector('[data-consent="accept"]');
-    const declineBtn = banner.querySelector('[data-consent="decline"]');
-
-    if (acceptBtn) {
-      acceptBtn.addEventListener("click", () => {
-        localStorage.setItem("consent_accepted", "all");
-        banner.classList.remove("consent-banner--visible");
-        loadAnalytics();
-      });
-    }
-    if (declineBtn) {
-      declineBtn.addEventListener("click", () => {
-        localStorage.setItem("consent_accepted", "essential");
-        banner.classList.remove("consent-banner--visible");
-      });
-    }
-
-    if (accepted === "all") loadAnalytics();
-  }
-
-  function loadAnalytics() {
-    if (document.querySelector('script[src*="googletagmanager"]')) return;
-    // Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
-    const gtagId = "G-XXXXXXXXXX";
-    const s = document.createElement("script");
-    s.async = true;
-    s.src =
-      "https://www.googletagmanager.com/gtag/js?id=" +
-      encodeURIComponent(gtagId);
-    document.head.appendChild(s);
-    s.onload = () => {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", gtagId, { anonymize_ip: true });
-    };
   }
 
   /* ---------- Smooth scroll for anchor links ---------- */
