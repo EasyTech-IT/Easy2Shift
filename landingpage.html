@@ -323,8 +323,10 @@
         .nav__item:hover .nav__dropdown {
           display: none;
         }
-        .nav__item--open .nav__dropdown {
+        .nav__item--open .nav__dropdown,
+        .nav__item:hover.nav__item--open .nav__dropdown {
           display: block;
+          transform: none;
         }
       }
 
