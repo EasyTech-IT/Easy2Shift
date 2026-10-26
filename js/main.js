@@ -4,38 +4,6 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- Geschützte E-Mail-Links ---------- */
-  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
-    const mailto = link.getAttribute("href");
-    const email = mailto.slice("mailto:".length).split("?")[0];
-    let revealTimer;
-
-    link.classList.add("protected-email");
-    link.dataset.mailto = mailto;
-    link.removeAttribute("href");
-    link.setAttribute("role", "button");
-    link.setAttribute("tabindex", "0");
-    link.setAttribute("aria-label", "E-Mail-Adresse anzeigen");
-
-    const reveal = (event) => {
-      event.preventDefault();
-      window.clearTimeout(revealTimer);
-      link.classList.add("protected-email--revealed");
-      link.setAttribute("href", `mailto:${email}`);
-      link.setAttribute("aria-label", `${email} - E-Mail senden`);
-      revealTimer = window.setTimeout(() => {
-        link.classList.remove("protected-email--revealed");
-        link.removeAttribute("href");
-        link.setAttribute("aria-label", "E-Mail-Adresse anzeigen");
-      }, 5000);
-    };
-
-    link.addEventListener("click", reveal);
-    link.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") reveal(event);
-    });
-  });
-
   /* ---------- Flip Cards (mobile tap) ---------- */
   document.querySelectorAll(".flip-card").forEach((card) => {
     card.addEventListener("click", () => {

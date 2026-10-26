@@ -502,17 +502,6 @@
         opacity: 1;
         transform: translateX(4px);
       }
-      .protected-email {
-        cursor: pointer;
-        filter: blur(5px);
-        user-select: none;
-        transition: filter var(--transition);
-      }
-      .protected-email--revealed {
-        filter: none;
-        user-select: text;
-      }
-
       /* ===== BUTTON COLORS ===== */
       /* WhatsApp */
       .lp-btn--whatsapp {
@@ -867,7 +856,7 @@
           </a>
 
           <a
-            href="tel:015208736872"
+            href="tel:+4915221069561"
             class="lp-btn lp-btn--phone lp-btn--featured"
             aria-label="Jetzt anrufen"
           >
@@ -1068,37 +1057,6 @@
       /* ---- Hamburger menu ---- */
       const toggle = document.querySelector(".nav__toggle");
       const nav = document.querySelector("#main-nav");
-
-      /* ---- Protected email reveal ---- */
-      document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
-        const mailto = link.getAttribute("href");
-        const email = mailto.slice("mailto:".length).split("?")[0];
-        let revealTimer;
-
-        link.classList.add("protected-email");
-        link.removeAttribute("href");
-        link.setAttribute("role", "button");
-        link.setAttribute("tabindex", "0");
-        link.setAttribute("aria-label", "E-Mail-Adresse anzeigen");
-
-        const reveal = (event) => {
-          event.preventDefault();
-          window.clearTimeout(revealTimer);
-          link.classList.add("protected-email--revealed");
-          link.setAttribute("href", `mailto:${email}`);
-          link.setAttribute("aria-label", `${email} - E-Mail senden`);
-          revealTimer = window.setTimeout(() => {
-            link.classList.remove("protected-email--revealed");
-            link.removeAttribute("href");
-            link.setAttribute("aria-label", "E-Mail-Adresse anzeigen");
-          }, 5000);
-        };
-
-        link.addEventListener("click", reveal);
-        link.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") reveal(event);
-        });
-      });
 
       toggle.addEventListener("click", () => {
         const isOpen = toggle.getAttribute("aria-expanded") === "true";

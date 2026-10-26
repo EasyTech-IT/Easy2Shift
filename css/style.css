@@ -69,17 +69,6 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
-.protected-email {
-  cursor: pointer;
-  filter: blur(5px);
-  user-select: none;
-  transition: filter var(--transition);
-}
-.protected-email--revealed {
-  filter: none;
-  user-select: text;
-}
-
 ul,
 ol {
   list-style: none;
