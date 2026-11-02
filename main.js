@@ -31,10 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     document
       .querySelectorAll(".nav__item--has-dropdown > .nav__link")
       .forEach((link) => {
+        const item = link.closest(".nav__item");
+        link.setAttribute(
+          "aria-expanded",
+          String(item.classList.contains("nav__item--open")),
+        );
+
         link.addEventListener("click", (e) => {
           if (window.innerWidth < 1024) {
             e.preventDefault();
-            link.parentElement.classList.toggle("nav__item--open");
+            const open = item.classList.toggle("nav__item--open");
+            link.setAttribute("aria-expanded", String(open));
           }
         });
       });
