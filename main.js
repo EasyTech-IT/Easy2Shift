@@ -108,6 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      if (typeof gtag === "function") {
+        gtag("event", "conversion", {
+          send_to: "AW-18519087172/f1_ZCL3YlaAdEMSwy_5E",
+        });
+      }
+
       if (mailtoRecipient) {
         e.preventDefault();
 
